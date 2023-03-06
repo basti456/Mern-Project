@@ -1,0 +1,19 @@
+{
+  "name": "mern-project",
+  "version": "1.0.0",
+  "description": "serv",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basti456/Mern-Project.git"
+  },
+  "author": "Ekagra Agrawal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basti456/Mern-Project/issues"
+  },
+  "homepage": "https://github.com/basti456/Mern-Project#readme"
+}
