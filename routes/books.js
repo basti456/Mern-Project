@@ -6,6 +6,14 @@ const { books } = require("../data/books.json");
 
 const { users } = require("../data/users.json");
 
+const { UserModal, BookModel } = require("../modals/index");
+
+const {
+  getAllBooks,
+  getSingleBookById,
+  getAllIssuedBooks
+} = require("../controllers/book-controller");
+
 /**
  * Route:"/books"
  * Method:GET
@@ -14,13 +22,15 @@ const { users } = require("../data/users.json");
  * params:None
  */
 
-router.get("/", (req, res) => {
-  res.status(200).json({
-    suceess: true,
-    message: "Books fetched successfully",
-    data: books,
-  });
-});
+// router.get("/", (req, res) => {
+//   res.status(200).json({
+//     suceess: true,
+//     message: "Books fetched successfully",
+//     data: books,
+//   });
+// });
+
+router.get("/",getAllBooks);
 
 /**
  * Route:"/books/:id"
@@ -30,21 +40,23 @@ router.get("/", (req, res) => {
  * params:id
  */
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const book = books.find((each) => each.id === id);
-  if (!book) {
-    return res.status(404).json({
-      success: false,
-      data: "Book Doesn't exists",
-    });
-  }
-  return res.status(200).json({
-    success: true,
-    message: "Book Found",
-    data: book,
-  });
-});
+// router.get("/:id", (req, res) => {
+//   const { id } = req.params;
+//   const book = books.find((each) => each.id === id);
+//   if (!book) {
+//     return res.status(404).json({
+//       success: false,
+//       data: "Book Doesn't exists",
+//     });
+//   }
+//   return res.status(200).json({
+//     success: true,
+//     message: "Book Found",
+//     data: book,
+//   });
+// });
+
+router.get("/:id", getSingleBookById);
 
 /**
  * Route:"/books/issued"
@@ -145,7 +157,5 @@ router.put("/updateBook/:id", (req, res) => {
     data: updatedBooks,
   });
 });
-
-
 
 module.exports = router;
